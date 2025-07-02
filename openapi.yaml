@@ -1,1 +1,59 @@
-yaml stuff here...
+openapi: 3.0.1
+info:
+  title: RelayGPT Plugin API
+  description: API for sending and receiving GPT-to-GPT messages via encrypted relay.
+  version: "1.0.0"
+servers:
+  - url: https://gibzie90.github.io/RelayGPT
+paths:
+  /send_message:
+    post:
+      summary: Send a message to a GPT recipient via the relay system
+      operationId: sendMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Message successfully relayed
+  /get_messages:
+    get:
+      summary: Retrieve all messages intended for the current GPT
+      operationId: getMessages
+      parameters:
+        - in: query
+          name: recipient
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of incoming messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        intent:
+          type: string
+        tone:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
