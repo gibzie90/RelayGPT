@@ -1,1 +1,17 @@
-stuff here...
+{
+  "schema_version": "v1",
+  "name_for_human": "RelayGPT",
+  "name_for_model": "RelayGPT",
+  "description_for_human": "AI-MC WIP",
+  "description_for_model": "AI-MC WIP",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://gibzie90.github.io/RelayGPT/openapi.yaml"
+  },
+  "logo_url": "https://gibzie90.github.io/RelayGPT/assets/logo.png",
+  "contact_email": "RelayGPT@Gmail.com",
+  "legal_info_url": "https://gibzie90.github.io/RelayGPT/legal.html"
+}
